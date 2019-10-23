@@ -1,0 +1,14 @@
+{:paths ["src"]
+ :deps
+ {io.dominic/high {:local/root "../high"}
+
+  ;; applications
+  ring/ring-jetty-adapter {:mvn/version "1.7.1"}
+  ring/ring-core {:mvn/version "1.7.1"}
+  metosin/reitit {:mvn/version "0.3.10"}
+  juxt/crux-core {:mvn/version "19.09-1.4.0-alpha"}}
+ :aliases
+ {:dev
+  {:extra-paths ["dev"]
+   :extra-deps
+   {org.clojure/tools.namespace {:mvn/version "0.3.1"}}}}}

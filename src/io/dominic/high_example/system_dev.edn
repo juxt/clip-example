@@ -1,0 +1,27 @@
+{:components
+ {:db
+  {:start
+   (crux.api/start-standalone-node
+     {:kv-backend "crux.kv.memdb.MemKv"
+      :event-log-dir "data/eventlog-1"
+      :db-dir "data/db-dir-1"})}
+
+  :handler
+  {:start
+   (io.dominic.high-example.http/handler
+     (high/ref :db))}
+
+  :router
+  {:start
+   (reitit.ring/ring-handler
+     (reitit.ring/router
+       [["/handler" (high/ref :handler)]])
+     (constantly {:status 404, :body "404"}))}
+  
+  :http
+  {:start
+   (ring.adapter.jetty/run-jetty
+     (high/ref :router)
+     {:join? false
+      :port 3005})
+   :stop io.dominic.high-example.http/stop-jetty}}}
