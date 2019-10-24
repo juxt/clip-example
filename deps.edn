@@ -1,6 +1,6 @@
 {:paths ["src"]
  :deps
- {io.dominic/high {:local/root "../high"}
+ {io.dominic/high {:mvn/version "0.0.0"}
 
   ;; applications
   ring/ring-jetty-adapter {:mvn/version "1.7.1"}
