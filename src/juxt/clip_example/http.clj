@@ -1,4 +1,4 @@
-(ns io.dominic.high-example.http)
+(ns juxt.clip-example.http)
 
 (defn handler
   [db]

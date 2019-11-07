@@ -8,20 +8,20 @@
 
   :handler
   {:start
-   (io.dominic.high-example.http/handler
-     (high/ref :db))}
+   (juxt.clip-example.http/handler
+     (clip/ref :db))}
 
   :router
   {:start
    (reitit.ring/ring-handler
      (reitit.ring/router
-       [["/handler" (high/ref :handler)]])
+       [["/handler" (clip/ref :handler)]])
      (constantly {:status 404, :body "404"}))}
   
   :http
   {:start
    (ring.adapter.jetty/run-jetty
-     (high/ref :router)
+     (clip/ref :router)
      {:join? false
       :port 3005})
-   :stop io.dominic.high-example.http/stop-jetty}}}
+   :stop juxt.clip-example.http/stop-jetty}}}

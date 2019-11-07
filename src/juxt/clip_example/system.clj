@@ -1,4 +1,4 @@
-(ns io.dominic.high-example.system
+(ns juxt.clip-example.system
   (:require
     [clojure.java.io :as io]
     [clojure.edn :as edn]))
@@ -10,4 +10,4 @@
   (edn/read-string
     (slurp
       (io/resource
-        (str "io/dominic/high_example/system_" (name profile) ".edn")))))
+        (str "juxt/clip_example/system_" (name profile) ".edn")))))
